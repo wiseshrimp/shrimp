@@ -1,0 +1,32 @@
+body{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	background:#F5F6F8;
+}
+
+.wrapper{
+	width:100%;
+	min-height: 700px;
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url(http://eugeneburlak.ru/wp-content/themes/eugeneburlak/images/background.jpg);
+	background-size: cover;
+	overflow: hidden;
+}
+
+.layer-1 {
+	position: absolute;
+	top:0;
+	left:0;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 1;
+  background-size: contain;
+  height: 100px; width: 100px;
+}
+
+.layer-1{
+  background-image: url(http://www.puebloviejo.us/images/Shrimp2.png);
+}
