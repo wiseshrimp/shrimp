@@ -1,0 +1,43 @@
+.side-menu {
+   display: inline-block;
+   position: absolute;
+   width: 30%;
+   margin-left: 30px;
+   font-family: sans-serif;
+   top: 13%;
+   letter-spacing: 5px;
+   z-index: 10;
+}
+
+.menu-item {
+   margin-left: 10px;
+   color: #01b0dc;
+   cursor: pointer;
+}
+
+.divider {
+   display: none;
+}
+
+@media (max-width:641px) {
+   .side-menu {
+      display: block;
+      text-align: center;
+      width: 100%;
+      top: 1%;
+      position: absolute;
+      letter-spacing: 0;
+      margin-left: 0px;
+   }
+
+   .menu-item, .divider, .inline {
+      display: inline;
+      margin-left: 9px; margin-right: -1px;
+      font-size: 12px;
+   }
+
+   .divider {
+      color: gray;
+      font-size: 13px;
+   }
+}

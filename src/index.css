@@ -6,27 +6,104 @@ body{
 }
 
 .wrapper{
-	width:100%;
-	min-height: 700px;
+	height: 100vh; width: auto;
+	margin-left: -250px;
 	position: relative;
-	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url(http://eugeneburlak.ru/wp-content/themes/eugeneburlak/images/background.jpg);
+	background-image: url('./images/river.gif');
 	background-size: cover;
 	overflow: hidden;
 }
 
-.layer-1 {
+.name {
 	position: absolute;
-	top:0;
-	left:0;
-	background-position: center;
-	background-repeat: no-repeat;
-	z-index: 1;
-  background-size: contain;
-  height: 100px; width: 100px;
+	font-family: 'Iconsolata', monospace;
+	color: white;
+	font-size: 70px;
+	left: calc(1vw + 250px);
+	text-shadow: 0px 0px 10px #b916a8;
+	cursor: pointer;
+	user-select: none;
+	z-index: 2;
 }
 
-.layer-1{
-  background-image: url(http://www.puebloviejo.us/images/Shrimp2.png);
+.layer {
+	position: absolute;
+	background-position: center;
+	background-repeat: no-repeat;
+  	background-size: contain;
+	z-index: 1;
+}
+
+#layer1{
+	top: 60vh; left: 20vw;
+  	background-image: url('./images/shrimp.png');
+	height: 100px; width: 100px;
+}
+
+#layer2 {
+	top: 40vh; left: 45vw;
+  	background-image: url('./images/shrimp2.png');
+	height: 200px; width: 200px;
+}
+
+#layer3 {
+	top: 50vh; left: 70vw;
+	background-image: url('./images/shrimp3.gif');
+	height: 200px; width: 200px;
+}
+
+#layer4 {
+	top: 30vh; left: 80vw;
+	background-image: url('./images/shrimp5.png');
+	height: 150px; width: 150px;
+}
+
+#layer5 {
+	top: 10vh; left: 85vw;
+	background-image: url('./images/shrimp7.png');
+	height: 140px; width: 140px;
+}
+
+.header {
+	z-index: 2;
+	position: fixed;
+	font-family: 'Iconsolata', monospace;
+	font-size: 50px;
+	color: white;
+	text-shadow: 0px 0px 10px #b916a8;
+	cursor: pointer;
+}
+
+#work {
+	top: 20vh; left: 30vw;
+}
+
+#about {
+	top: 40vh;
+	left: 20vw;
+}
+
+.back {
+	position: fixed;
+	top: 10vh; left: 10vw;
+}
+
+.bounce { 
+	-webkit-animation-name: bounce; 
+	animation-name: bounce;
+	animation-duration: 4s; -webkit-animation-duration: 4s;
+	animation-fill-mode: both; -webkit-animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounce { 
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
+	40% {-webkit-transform: translateY(100vh);} 
+	60% {-webkit-transform: translateY(40vh);} 
+} 
+
+@keyframes bounce { 
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+	40% {transform: translateY(100vh);} 
+	60% {transform: translateY(40vh);} 
 }
