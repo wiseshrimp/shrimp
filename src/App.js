@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import About from './About'
-import Work from './Work'
+import Contact from './Contact'
+import Work from './Work.jsx'
 
 const layers = ['layer1', 'layer2', 'layer3', 'layer4', 'layer5']
 
@@ -72,7 +73,7 @@ class App extends Component {
   )
 
   renderHome () {
-    let headers = ['work', 'about']
+    let headers = ['work'] // change to 'about', 'contact' when in development
 
     return (
       <div>
@@ -86,6 +87,8 @@ class App extends Component {
     switch (this.state.active) {
       case 'home':
         return this.renderHome()
+      case 'contact':
+        return <Contact goHome={this.changePage} />  
       case 'work':
         return <Work goHome={this.changePage} />
       case 'about':

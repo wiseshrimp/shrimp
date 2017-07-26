@@ -1,11 +1,16 @@
-body{
+body {
 	margin:0;
 	padding:0;
 	box-sizing: border-box;
 	background:#F5F6F8;
 }
 
-.wrapper{
+.link {
+	color: #01b0dc;
+	font-weight: bold;
+}
+
+.wrapper {
 	height: 100vh; width: auto;
 	margin-left: -250px;
 	position: relative;
@@ -19,7 +24,7 @@ body{
 	position: absolute;
 	font-family: 'Iconsolata', monospace;
 	color: white;
-	font-size: 70px;
+	font-size: 8vh;
 	left: calc(1vw + 250px);
 	text-shadow: 0px 0px 10px #b916a8;
 	cursor: pointer;
@@ -82,6 +87,11 @@ body{
 #about {
 	top: 40vh;
 	left: 20vw;
+}
+
+#contact {
+	top: 60vh;
+	left: 7vw;
 }
 
 .back {

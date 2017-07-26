@@ -1,10 +1,18 @@
 import * as React from 'react'
-// import Preload from 'react-preload'
+import Preload from 'react-preload'
 
+import './LoadingIndicator.css'
 import './Work.css'
 import WorkSideMenu from './WorkSideMenu'
 import work from './work'
-// const images = [require('./images/museum-0.png'), require('./images/museum-1.png'), require('./images/museum-2.png'), require('./images/museum-3.png')]
+
+let images = function () {
+    let imageArray = []
+    work.forEach(piece => {
+        imageArray = [...imageArray, ...piece.images]
+    })
+    return imageArray
+}()
 
 export default class Work extends React.Component {
     constructor (props) {
@@ -14,6 +22,10 @@ export default class Work extends React.Component {
             imageIdx: {
                 museum: 0,
                 keys: 0
+            },
+            fullscreenImage: {
+                isExpanded: false,
+                image: null
             }
         }
     }
@@ -41,15 +53,29 @@ export default class Work extends React.Component {
                 newIdx = imageIdx[work] - 1
             }
         }
-        this.setState({imageIdx: Object.assign({}, imageIdx, {[work]: newIdx})})
+        this.setState({
+            imageIdx: Object.assign({}, imageIdx, { [work]: newIdx })
+        })
     }
 
     changeWork = idx => {
         this.setState({projectIdx: idx})
     }
 
+    fullscreenImage = ev => {
+        this.setState({ fullscreenImage: { isExpanded: true, image: ev.target.id } })
+    }
+
+    exitFullscreen = () => {
+        this.setState({ fullscreenImage: { isExpanded: false, image: null } })
+    }
+
     goHome = () => {
         this.props.goHome('home')
+    }
+
+    openLink = ev => {
+        window.open(ev.target.dataset.href)
     }
 
     renderDot = (image, idx) => (
@@ -60,10 +86,59 @@ export default class Work extends React.Component {
             onClick={this.changePicture} />
     )
 
+    renderFullscreenImage = () => {
+        return (
+            <div className="fullscreen-container">
+                <div onClick={this.exitFullscreen} className="back">back</div>
+                <div id={this.state.fullscreenImage.image} className="fullscreen-image" />
+            </div>
+        )
+    }
+
     renderLink = link => (
-        <a key={Object.keys(link)}
-            className={Object.keys(link)}
-            href={link[Object.keys(link)]}>{Object.keys(link)}</a>
+        <div key={Object.keys(link)}
+            className={`${Object.keys(link)} link`}
+            onClick={this.openLink}
+            data-href={link[Object.keys(link)]}>{Object.keys(link)}</div>
+    )
+
+    renderCircle = (
+        <div className="cssload-circle" />
+    )
+
+    renderLoadingIndicator = () => (
+        <div className="cssload-wrap">
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+            <div className="cssload-circle" />
+        </div>
     )
 
     renderWork = work => (
@@ -74,7 +149,10 @@ export default class Work extends React.Component {
                 </div>
                 <div className="piece-media">
                     <div className="image-container">
-                        <div id={`${work.id}-${this.state.imageIdx[work.id]}`} className="piece-img" />
+                        <div id={`${work.id}-${this.state.imageIdx[work.id]}`}
+                            className="piece-img"
+                            data-image={this.state.imageIdx[work.id]}
+                            onClick={this.fullscreenImage} />
                         <div className="previous"
                             data-type="back"
                             data-work={work.id}
@@ -97,11 +175,22 @@ export default class Work extends React.Component {
         </div>
     )
 
-    render () {
+    renderWorkPage = () => (
+        <div>
+            <WorkSideMenu changeWork={this.changeWork} />
+            {this.renderWork(work[this.state.projectIdx])}
+        </div>
+    )
+
+    render() {
+        const loadingIndicator = this.renderLoadingIndicator()
         return (
             <div className="work-container">
-                <WorkSideMenu changeWork={this.changeWork} />
-                {this.renderWork(work[this.state.projectIdx])}
+                <Preload
+                    loadingIndicator={loadingIndicator}
+                    images={images}>
+                    {this.state.fullscreenImage.isExpanded ? this.renderFullscreenImage() : this.renderWorkPage()}
+                </Preload>
             </div>
         )
     }

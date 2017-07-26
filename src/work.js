@@ -2,7 +2,7 @@ const work = [
    {
       title: 'museum.me',
       description: `a virtual reality web gallery made for you and only you... log onto facebook and see your glorious photos on display. head over to the wise chimp for a live reading of your statuses. see your beautiful self, your friends, family, and high school acquaintances framed for your pleasure. but don't stare too long... if you do, mark, the sleeping giant, will emerge, and you will have to defeat him.`,
-      links: [{github: ''}, {youtube: ''}],
+      links: [{ github: 'https://github.com/wiseshrimp/museum-me' }, { youtube: 'https://www.youtube.com/watch?v=UnJnAv0ZKVc&t=4s'}],
       images: [require('./images/museum-0.png'), require('./images/museum-1.png'), require('./images/museum-2.png'), require('./images/museum-3.png')],
       id: 'museum'
    },
