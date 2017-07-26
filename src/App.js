@@ -98,6 +98,7 @@ class App extends Component {
     }
   }
 
+
   render() {
     return (
       <div className="wrapper" ref={this.refHandlers.wrapper}>
