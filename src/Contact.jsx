@@ -29,38 +29,11 @@ export default class Contact extends React.Component {
       <div className="contact-container">
         <div className="contact-header">CONTACT</div>
         <div className="contact-info">
-          e-mail me at sueroh@gmail.com <br />
-          -- <br />
-          or <br />
-          <div className="contact-form-container">
-            <form onSubmit={this.onFormSubmit}>
-              <input className="contact-name"
-                type="text"  
-                placeholder="Name"
-                onChange={this.setContactForm}
-                data-type="name"
-              />
-              <input className="contact-email"
-                type="text"
-                placeholder="E-mail"
-                onChange={this.setContactForm}
-                data-type="email"
-              />
-              <input className="contact-phone"
-                type="text"
-                placeholder="Phone number"
-                onChange={this.setContactForm}
-                data-type="phone"
-              />
-              <input className="contact-message"
-                type="text"
-                placeholder="Message"
-                onChange={this.setContactForm}
-                data-type="message"
-              />
-              <button type="submit" onClick={this.onFormSubmit} />
-            </form>
-          </div>
+          <div className="email">sueroh@gmail.com <br /></div>
+          <div className="divider">--</div><br />
+          <a href="https://github.com/wiseshrimp" className="link">github</a><br />
+          <a href="https://www.linkedin.com/in/sue-roh-35b38794/" className="link">linkedin</a><br />
+          <a href="https://www.upwork.com/freelancers/~01aa6b4ddc9a37ac91" className="link">upwork</a><br />
         </div>
       </div>
     )

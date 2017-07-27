@@ -20,6 +20,8 @@ export default class Work extends React.Component {
         this.state = {
             projectIdx: 0,
             imageIdx: {
+                epPlayer: 0,
+                epEditor: 0,
                 museum: 0,
                 keys: 0
             },
@@ -31,30 +33,35 @@ export default class Work extends React.Component {
     }
 
     changePicture = ev => {
-        let {type, work} = ev.target.dataset
-        if (ev.target.dataset.idx) {
+        let { type } = ev.target.dataset
+        let work2 = ev.target.dataset.work
+        if (ev.target.dataset.idx) { // If one of the circles is clicked
             this.setState({
-                imageIdx: Object.assign({}, this.state.imageIdx, {[work]: Number(ev.target.dataset.idx)})
+                imageIdx: Object.assign({}, this.state.imageIdx, {[work2]: Number(ev.target.dataset.idx)})
             })
             return
         }
         let {imageIdx} = this.state
         let newIdx
+        let workArr
+        work.forEach(piece => {
+            if (piece.id === work2) workArr = piece
+        })
         if (type === 'forward') {
-            if (imageIdx[work] + 1 > 3) {
+            if (imageIdx[work2] + 1 === workArr.images.length) {
                 newIdx = 0
             } else {
-                newIdx = imageIdx[work] + 1
+                newIdx = imageIdx[work2] + 1
             }
         } else {
-            if (imageIdx[work] - 1 < 0) {
-                newIdx = 3
+            if (imageIdx[work2] - 1 < 0) {
+                newIdx = workArr.images.length - 1
             } else {
-                newIdx = imageIdx[work] - 1
+                newIdx = imageIdx[work2] - 1
             }
         }
         this.setState({
-            imageIdx: Object.assign({}, imageIdx, { [work]: newIdx })
+            imageIdx: Object.assign({}, imageIdx, { [work2]: newIdx })
         })
     }
 

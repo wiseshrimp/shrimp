@@ -16,7 +16,7 @@
 .piece-container {
    position: absolute;
    height: 80%; width: 100%;
-   top: 10%; left: -10%;
+   top: 15%; left: -10%;
    font-family: sans-serif; font-size: smaller;
 }
 
@@ -104,10 +104,21 @@
 
 .active {color: #6f9261;}
 
+#epPlayer-0 { background-image: url('./images/epPlayer-0.png'); }
+#epPlayer-1 { background-image: url('./images/epPlayer-1.png'); }
+#epPlayer-2 { background-image: url('./images/epPlayer-2.png'); }
+
+#epEditor-0 { background-image: url('./images/epEditor-0.png'); }
+#epEditor-1 { background-image: url('./images/epEditor-1.png'); }
+#epEditor-2 { background-image: url('./images/epEditor-2.png'); }
+#epEditor-3 { background-image: url('./images/epEditor-3.png'); }
+#epEditor-4 { background-image: url('./images/epEditor-4.png'); }
+
 #museum-0 { background-image: url('./images/museum-0.png'); }
 #museum-1 { background-image: url('./images/museum-1.png'); }
 #museum-2 { background-image: url('./images/museum-2.png'); }
 #museum-3 { background-image: url('./images/museum-3.png'); }
+
 #keys-0 {background-image: url('./images/keys-0.gif');}
 #keys-1 {background-image: url('./images/keys-1.png');}
 #keys-2 {background-image: url('./images/keys-2.png');}
@@ -121,7 +132,7 @@
 .work-header {
    position: relative;
    width: 50%;
-   left: 50%;
+   left: 19%;
    text-align: center;
    font-size: large;
    letter-spacing: 4px;
@@ -187,7 +198,11 @@
     to   { opacity: 1; }
 }
 
-@media (max-height:550px) {
+ @media (max-height:450px) {
+    .image-container {
+        width: 50%;
+        float: right;
+    }
    .description {
       display: none;
    }
@@ -204,7 +219,7 @@
    .side-menu {
       top: 86%;
    }
-}
+} 
 
 @media (max-height:300px) {
    .work-header {

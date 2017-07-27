@@ -73,7 +73,7 @@ class App extends Component {
   )
 
   renderHome () {
-    let headers = ['work'] // change to 'about', 'contact' when in development
+    let headers = ['work', 'contact'] // change to 'about', 'contact' when in development
 
     return (
       <div>

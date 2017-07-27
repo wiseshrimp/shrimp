@@ -5,6 +5,8 @@
    background-color: rgba(255, 255, 255, 0.85);
    top: 10vh; margin-left: 250px;
    box-shadow: 0px 0px 10px black;
+   text-align: center;
+   font-family: sans-serif;
 
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -14,5 +16,17 @@
 }
 
 .contact-header {
-  
+  font-size: large;
+  letter-spacing: 4px;
+  margin-bottom: 13px; margin-top: 10vh;
+  color: #01b0dc;
+}
+
+.contact-info {
+  letter-spacing: 1px;
+}
+
+.divider {
+  margin-top: 2vh; margin-bottom: 2vh;
+  display: block;
 }
